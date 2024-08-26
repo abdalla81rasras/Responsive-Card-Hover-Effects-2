@@ -1,0 +1,153 @@
+* , *::after , *::before , :root{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: Snell Roundhand, cursive ;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(94, 164, 255);
+}
+
+.card{
+    position: relative;
+    display: flex;
+    width: 550px;
+    height: 300px;
+    /*background: silver;*/
+    border-radius: 25px;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.circle::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: yellowgreen;
+    clip-path: circle(140px at center);
+    transition: 0.5s;
+}
+
+.card:hover .circle::before{
+    clip-path: circle(400px at center);
+    background: yellow;
+}
+
+img{
+    width: 30%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.card:hover img{
+    left:72%;
+    width: 35%;
+}
+
+.contact{
+    position: relative;
+    width: 50%;
+    padding: 10px 25px 10px 60px;
+    right:  50%;
+    transition: 0.2s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card:hover .contact{
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+}
+
+h2{
+    color: rgb(14, 76, 245);
+    text-transform: uppercase;
+    line-height: 2rem;
+    margin-bottom: 7px;
+}
+
+p{
+    color: rgb(41, 58, 151);
+}
+
+button{
+    position: relative;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgb(53, 138, 27);
+}
+
+button:hover{
+    background: rgb(101, 146, 89);
+    color: aliceblue;
+    box-shadow: 0 0 20px rgb(9, 104, 9);
+}
+
+@media (max-width:600px){
+    .card{
+        width: auto;
+        max-width: 300px;
+        align-items: flex-start;
+    }
+
+    .card:hover{
+        height: 600px;
+        margin-top: 50px;
+    }
+
+    .card:hover .circle{
+        height: 450px;
+    }
+
+    .contact{
+        width: 100%;
+        left: 0;
+        padding: 30px;
+    }
+
+    img{
+        width: 50%;
+    }
+
+    .card:hover img{
+        width: 35%;
+        top:56%;
+        left: 50%;
+    }
+
+    .card:hover button{
+       left:30%;
+    }
+ 
+}
